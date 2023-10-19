@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import data_handler
 import util
-from bonus_questions import SAMPLE_QUESTIONS
 import user_data_handler
 
 app = Flask(__name__)
