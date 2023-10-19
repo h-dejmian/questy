@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+    {% block content%}
+
+    <body>
+        <center>
+        <h1>User log in</h1>
+        <form action="" method="POST">
+            <br>
+            <label>User nickname or email:</label>
+            <input type="text" name="user_name"/> <br>
+            <label>User password:</label>
+            <input type="text" name="password"/> <br>
+            <input type="submit" value="Submit"/> 
+            {% if message %}
+            <p>{{ message }}</p>
+            {% endif %}
+        </form>
+        <br>
+        <a href="/">Back to main page</a>
+        </center>
+    </body>
+
+    {% endblock %}

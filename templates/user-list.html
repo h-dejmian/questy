@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+    {% block content %}
+
+    <body>
+        <h1>List Of Users</h1> 
+        <br><br>
+        <br>
+        <table class="table" style="width:100%" border="1">
+            <tr>
+                <th> ID </th>
+                <th> Registration Date </th>
+                <th> User Name </th>
+                <th> Asked questions </th>
+                <th> Number of answers </th>
+                <th> Number of comments </th>
+                <th> Reputation </th>
+              </tr>
+
+            {% for user in users %}
+           
+            <tr>
+              <th> {{ loop.index0 + 1}} </th>
+              <th> {{ user.registration_date }} </th>
+              <th> {{ user.user_name }} </th>
+              <th> 0 </th>
+              <th> 0 </th>
+              <th> 0 </th>
+              <th> {{ user.reputation }} </th>
+            </tr>
+            
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="/">Back to main page</a>
+    </body>
+
+    {% endblock %}

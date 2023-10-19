@@ -1,0 +1,45 @@
+body {
+    background-color:beige;
+}
+
+h1 {
+    text-align: center;
+    margin: 40px;
+}
+
+h3 {
+    margin-left: 20px;
+}
+
+.question-body {
+    margin: 40px;
+}
+
+.table {
+    
+    border: 1px;
+}
+
+.login-register {
+    margin: 20px;
+}
+
+.welcome-message {
+    text-align: center;
+}
+
+.buttons-row {
+    display: flex;
+}
+
+.tag-list {
+    display: block;
+}
+
+input {
+    margin: 10px;
+}
+
+a {
+    margin-left: 20px;
+}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+    {% block content %}
+    
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+    <body>
+        <center>
+        <h1>Add Question</h1>
+        <br><br>
+        <form action="" method="POST">
+            <label>Title:</label>
+            <input type="text" name="title"/> <br>
+            <label>Question:</label> 
+            <input type="text" name="question"/> <br>
+            <input type="submit" value="Submit"/> 
+
+        </form>
+    
+        <br>
+        <a href="/list">Back to question list</a>
+        </center>
+    </body>
+
+    {% endblock %}

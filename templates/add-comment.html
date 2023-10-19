@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+    {% block content%}
+
+	<head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+	<body>
+		<center>
+			<h1>Add comment</h1>
+			<br>
+			<form action="" method="POST">
+				<label for="message">Message:</label>
+				<textarea id="message" name="message" rows="5" cols="50"></textarea><br><br>
+				<input type="submit" value="Submit">
+			</form>
+			<a href="/list">Back to question list</a>
+		</center>
+	</body>
+
+	{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+    {% block content%}
+
+        <div class="login-register">
+            {% if session.user_name %}
+            <h5 align="right">Logged in as {{ session.user_name }} | <a href="/logout">Log out</a> </h5>
+            {% else %}
+            <h5 align="right"> <a href="/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> Login </a> 
+              <a href="/registration" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Register</a> </h5>
+            {% endif %}
+        </div>
+
+        <h1>Welcome to AskMate</h1> 
+
+        <div class="welcome-message">
+            Finally you can find all the answers :-)  
+        <br><br>
+        <h3> &#11157<a href="/list"> Get in and see all the questions! </a> &#11157</h3>  
+        <br><br>
+      </div>
+
+
+        <h5>What's new?</h5>
+        <br>
+        <table class="table" style="width:100%" border="1">
+            <tr>
+                <th> ID </th>
+                <th> Submission Time </th>
+                <th> View Number </th>
+                <th> Title </th>
+                <th> Message </th>
+                <th> Image </th>
+              </tr>
+
+            {% for question in questions %}
+           
+            <tr>
+              <th> {{ loop.index0 + 1}} </th>
+              <th> {{ question.submission_time }} </th>
+              <th> {{ question.view_number }} </th>
+              <th> <a href="/question/{{question.id}}"> {{ question.title }} </a></th>
+              <th> {{ question.message }} </th>
+              <th> {{ question.image }} </th>
+            </tr>
+            
+            {% endfor %}
+        </table>
+        <br><br>
+
+        <div class="buttons-row">
+          {% if session.user_name %}
+          <a href="/users" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Users list</a>
+          {% endif %}
+          <br><br>
+          <a href="/tags" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Tags list</a>
+        </div>
+
+    {% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+    {% block content%}
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <h1>AskMate - Question</h1>
+        <div class="question-body">
+            <h2>{{ question.title }}</h2>
+            <p>{{ question.message }}</p>
+        </div>
+
+    <table class="table" style="width:100%; border: 1px">
+
+      <h3>Answers</h3> <br>
+          <tr>
+              <th> ID </th>
+              <th> Submission Time </th>
+              <th> Vote Number </th>
+              <th> Message </th>
+              <th> Image </th>
+              <th> Action </th>
+            </tr>
+
+          {% for answer in answers %}
+            
+          <tr>
+              <th> {{ loop.index0 + 1}} </th>
+              <th> {{ answer.submission_time }} </th>
+              <th> {{ answer.vote_number }} 
+                <a href="/answer/{{answer.id}}/vote-up" style="text-decoration: none" > + </a> 
+                <a href="/answer/{{answer.id}}/vote-down" style="text-decoration: none" > - </a> 
+              </th>
+              <th> {{ answer.message }} </th>
+              <th> {{ answer.image }} </th>
+              <th> 
+                  {% if session.user_name %}
+                  <a href="/question/{{answer.id}}/delete-answer"><span class="material-symbols-outlined">
+                    Delete
+                    </span></a>  |
+                  <a href="/question/{{answer.id}}/edit-answer">Edit</a>
+                  {% endif %}
+              </th>
+          </tr>
+        
+        {% endfor %}
+      </table>  
+      
+    <br><br>
+    {% if session.user_name %}
+    <a href="/question/{{question.id}}/add-answer" class="btn btn-secondary btn-lg active">Add new answer</a>
+    {% endif %}
+
+    <hr style="height:2px;border:none;color:#838383;background-color:#838383;" />
+    <h3>Comments</h3> <br>
+        <table class="table">
+            <tr>
+              <th> ID </th>
+              <th> Submission Time </th>
+              <th> Message </th>
+              <th> Edited Number </th>
+              <th> Action </th>
+            </tr>
+            
+              {% for comment in comments %}
+                <tr>
+                  <th> {{ loop.index0 + 1}} </th>
+                  <th> {{ comment.submission_time }} </th>
+                  <th> {{ comment.message }} </th>
+                  <th> {{ comment.edited_count }} </th>
+                  
+                  <th> 
+                    {% if session.user_name %}
+                      <a href="/comments/{{comment.id}}/delete-comment"><span class="material-symbols-outlined">
+                        Delete
+                        </span></a>  |
+                      <a href="/comments/{{comment.id}}/edit-comment">Edit</a>
+                    {% endif %}
+                  </th>
+                </tr>
+          {% endfor %}
+        </table>
+
+    <br><br>
+    {% if session.user_name %}
+    <a href="/question/{{question.id}}/new-comment" class="btn btn-secondary btn-lg active">Add new comment</a>
+    {% endif %}
+
+    <hr style="height:2px;border:none;color:#838383;background-color:#838383;" />
+    <h3>Tags</h3> <br>
+        <table class="table">
+          <tr>
+            {% for tag in tags %}
+              <th>
+               < {{ tag.name }} > 
+              </th>
+            {% endfor %}
+          </tr>
+          <tr>
+            {% for tag in tags %}
+              <td>
+                {% if session.user_name %}
+                  <a href="/question/{{question.id}}/tag/{{tag.id}}/delete"> <span class="material-symbols-outlined">Delete</span>   </a>
+                {% endif %}
+              </td>
+            {% endfor %}
+          </tr>
+        </table>
+    <br><br>
+
+    {% if session.user_name %}
+    <a href="/question/{{question.id}}/add-tag" class="btn btn-secondary btn-lg active">Add new tag</a>
+    {% endif %}
+    <br><br>
+    <hr style="height:2px;border:none;color:#838383;background-color:#838383;" />
+     
+    {% if session.user_name %}
+    <a href="/question/{{question.id}}/edit-question" class="btn btn-secondary btn-lg active">Edit question</a>
+    <a href="/question/{{question.id}}/delete-question" class="btn btn-secondary btn-lg active">Delete question</a>
+    {% endif %}
+    
+    
+    <br><br>
+    <a href="/list">Back to question list</a>
+    </body>
+
+    {% endblock %}

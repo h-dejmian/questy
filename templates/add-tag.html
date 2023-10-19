@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+    {% block content %}
+
+	<head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+
+	<body>
+		<center>
+		<h1>Add tag</h1>
+		<br>
+		Choose from list or create a new one:
+		<br><br>
+		<form action="" method="POST">
+			<div class="tag-list">
+				{% for tag in tags %}
+				<input type="submit" id="tag" name="tag" value="{{ tag.name }}">
+				{% endfor %}
+			</div>
+			<label for="tag">Tag:</label>
+			<input id="tag" name="tag" rows="5" cols="50"></input><br><br>
+			<input type="submit" value="Submit">
+		</form>
+        <br>
+        <a href="/list">Back to question list</a>
+	</center>
+	</body>
+
+	{% endblock %}

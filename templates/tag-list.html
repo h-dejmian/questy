@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+    {% block content%}
+
+    <body>
+        <h1>List Of Tags</h1> 
+        <br><br>
+        <table class="table" style="width:100%" border="1">
+            
+            <tr>
+                <th>ID</th>
+                <th>Tag</th>
+                <th>Marked Questions</th>
+            </tr>
+            {% for tag in tags %}
+            <tr>
+                <td> {{ loop.index0 + 1}} </td>
+                <td> {{ tag.name }} </td>
+                <td> {{ tag.marked_questions }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <a href="/">Back to main page</a>
+    </body>
+
+    {% endblock %}
