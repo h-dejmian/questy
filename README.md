@@ -19,7 +19,7 @@ Only after logging in we can see all possible functions of the website, especial
   ```
         PSQL_USER_NAME=
         PSQL_PASSWORD=
-        PSQL_HOST='localhost:5432'
+        PSQL_HOST=
         PSQL_DB_NAME=
   ```
 - create database in PostgreSQL with name chosen in .env file
