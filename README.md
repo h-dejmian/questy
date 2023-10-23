@@ -1,7 +1,7 @@
-## questy
+## Questy
 Web app in Python and Flask, forum in which users are able to ask questions.
 
-# description
+# Description
 This application is a place where people can ask questions to the community and get answers for them. Questions can be voted up are down.
 Users can register and have their accounts. In the list of users we can see number of questiones asked by every individual user, number of answers and comments to the questions.
 Every user has its reputation counted based on their questions votes.
@@ -12,10 +12,10 @@ Editing question, answer and comment is also a possible option along with deleti
 
 Only after logging in we can see all possible functions of the website, especially those related to creating, editing and deleting data.
 
-# launch
+# Launch
 - clone repository
-- create venv
-- create .env file according to schema below:
+- create **venv**
+- create **.env** file according to schema below:
   ```
         PSQL_USER_NAME=
         PSQL_PASSWORD=
@@ -24,17 +24,18 @@ Only after logging in we can see all possible functions of the website, especial
   ```
 - create database in PostgreSQL with name chosen in .env file
 - run sql script in sql folder
+- run **server.py** in your IDE
 
-# requirements
-Python==3.11.0
-click==8.1.3
+# Requirements
+Python==3.11.0  
+click==8.1.3  
 colorama==0.4.6      
-Flask==2.2.2
+Flask==2.2.2  
 itsdangerous==2.1.2  
 Jinja2==3.1.2        
 MarkupSafe==2.1.2    
 psycopg2==2.9.5      
-python-dotenv==0.21.1
-Werkzeug==2.2.2
+python-dotenv==0.21.1  
+Werkzeug==2.2.2  
 
 
