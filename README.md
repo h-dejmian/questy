@@ -1,4 +1,4 @@
-## Questy
+# Questy
 Web app in Python and Flask, forum in which users are able to ask questions.
 
 # Description
